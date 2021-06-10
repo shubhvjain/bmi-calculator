@@ -1,0 +1,19 @@
+{
+  "name": "bmi",
+  "version": "1.0.0",
+  "description": "Calculating BMI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhvjain/code-20210611-shubhvardhanjain.git"
+  },
+  "author": "shubhvjain@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhvjain/code-20210611-shubhvardhanjain/issues"
+  },
+  "homepage": "https://github.com/shubhvjain/code-20210611-shubhvardhanjain#readme"
+}

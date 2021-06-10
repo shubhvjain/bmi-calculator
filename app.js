@@ -1,4 +1,4 @@
-let BMIAnalysis = (bmiValue) => {
+let analyseBMI = (bmiValue) => {
     let bins = [18.5, 25, 30, 35, 40]
     let info = {
         0: { cat: "Underweight", risk: "Malnutrition" },
