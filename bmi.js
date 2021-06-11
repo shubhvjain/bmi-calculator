@@ -1,14 +1,15 @@
 let analyseBMI = (bmiValue) => {
     let bins = [
-        { min: -Infinity, max: 18.4, cat: "Underweight", risk: "Malnutrition" },
-        { min: 18.5, max: 24.9, cat: "Normal weight", risk: "Low" },
-        { min: 25, max: 29.9, cat: "Overweight", risk: "Enhanced" },
-        { min: 30, max: 34.9, cat: "Moderately obese", risk: "Medium" },
-        { min: 35, max: 39.9, cat: "Severely obese", risk: "High" },
+        { min: -Infinity, max: 18.5, cat: "Underweight", risk: "Malnutrition" },
+        { min: 18.5, max: 25, cat: "Normal weight", risk: "Low" },
+        { min: 25, max: 30, cat: "Overweight", risk: "Enhanced" },
+        { min: 30, max: 35, cat: "Moderately obese", risk: "Medium" },
+        { min: 35, max: 40, cat: "Severely obese", risk: "High" },
         { min: 40, max: Infinity, cat: "Very severely obese", risk: "Very high" }
     ]
-    let currBin = bins.find(x => x.min <= bmiValue && bmiValue <= x.max)
-    return currBin
+    
+    let currBin = bins.find(x => x.min <= bmiValue && bmiValue < x.max)
+    return {cat:currBin.cat,risk:currBin.risk}
 }
 
 let computeBMI = (data) => {
