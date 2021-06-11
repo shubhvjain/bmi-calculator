@@ -1,20 +1,14 @@
 let analyseBMI = (bmiValue) => {
-    let bins = [18.5, 25, 30, 35, 40]
-    let info = {
-        0: { cat: "Underweight", risk: "Malnutrition" },
-        1: { cat: "Normal weight", risk: "Low" },
-        2: { cat: "Overweight", risk: "Enhanced" },
-        3: { cat: "Moderately obese", risk: "Medium" },
-        4: { cat: "Severely obese", risk: "High" },
-        5: { cat: "Very severely obese", risk: "Very high" },
-    }
-    let currBin = 0;
-    if (bins[0] < bmiValue < bins[1]) { currBin = 1 }
-    else if (bins[1] < bmiValue < bins[2]) { currBin = 2 }
-    else if (bins[2] < bmiValue < bins[3]) { currBin = 3 }
-    else if (bins[3] < bmiValue < bins[4]) { currBin = 4 }
-    else if (bmiValue < bins[5]) { currBin = 5 }
-    return info[currBin]
+    let bins = [
+        { min: -Infinity, max: 18.4, cat: "Underweight", risk: "Malnutrition" },
+        { min: 18.5, max: 24.9, cat: "Normal weight", risk: "Low" },
+        { min: 25, max: 29.9, cat: "Overweight", risk: "Enhanced" },
+        { min: 30, max: 34.9, cat: "Moderately obese", risk: "Medium" },
+        { min: 35, max: 39.9, cat: "Severely obese", risk: "High" },
+        { min: 40, max: Infinity, cat: "Very severely obese", risk: "Very high" }
+    ]
+    let currBin = bins.find(x => x.min <= bmiValue && bmiValue <= x.max)
+    return currBin
 }
 
 let computeBMI = (data) => {
@@ -25,5 +19,21 @@ let computeBMI = (data) => {
     if (data.HeightCm == 0) { throw new Error("Height cannot be 0") }
     let heightM = data.HeightCm / 100
     data.BMI = data.WeightKg / heightM
+    let info = analyseBMI(data.BMI)
+    data.BMICategory = info.cat
+    data.HealthRisk = `${info.risk} risk`
+    return data
 }
 
+let analyzeJSON = (userList) => {
+    let userListResult = userList.map(computeBMI)
+    return userListResult
+}
+
+let main = () => {
+    let data = [{ "Gender": "Male", "HeightCm": 171, "WeightKg": 96 }, { "Gender": "Male", "HeightCm": 161, "WeightKg": 85 }, { "Gender": "Male", "HeightCm": 180, "WeightKg": 77 }, { "Gender": "Female", "HeightCm": 166, "WeightKg": 62 }, { "Gender": "Female", "HeightCm": 150, "WeightKg": 70 }, { "Gender": "Female", "HeightCm": 167, "WeightKg": 82 }]
+    data = analyzeJSON(data)
+    console.log(JSON.stringify(data, null, 2))
+}
+
+main()
