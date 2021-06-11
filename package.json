@@ -1,10 +1,11 @@
 {
   "name": "bmi",
   "version": "1.0.0",
-  "description": "Calculating BMI",
+  "description": " Code",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/shubhvjain/code-20210611-shubhvardhanjain/issues"
   },
-  "homepage": "https://github.com/shubhvjain/code-20210611-shubhvardhanjain#readme"
+  "homepage": "https://github.com/shubhvjain/code-20210611-shubhvardhanjain#readme",
+  "devDependencies": {
+    "mocha": "9.0.0"
+  }
 }
