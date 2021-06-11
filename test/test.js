@@ -40,5 +40,18 @@ describe("Input data validation for BMI calculation", function () {
 
 })
 
-// describe("BMI calculation correctness",function(){
-// })
+describe("BMI calculation correctness", function () {
+  let data = { "HeightCm": 175, "WeightKg": 75 }
+  let expData = {
+    "HeightCm": 175, 
+    "WeightKg": 75,
+    "BMI":24.49,
+    "BMICategory":"Normal weight",
+    "HealthRisk":"Low risk"
+  }
+  let bmiData = bmi.computeBMI(data)
+  console.log(bmiData)
+  it("Correct BMI value", function () {assert.strictEqual(bmiData.BMI,expData.BMI)})
+  it("Correct BMI Category", function () {assert.strictEqual(bmiData.BMICategory,expData.BMICategory)})
+  it("Correct Health risk indicator", function () {assert.strictEqual(bmiData.HealthRisk,expData.HealthRisk)})
+})
