@@ -14,9 +14,10 @@ let analyseBMI = (bmiValue) => {
 let computeBMI = (data) => {
     if (!data.HeightCm) { throw new Error("Height not provided") }
     if (!data.WeightKg) { throw new Error("Weight not provided") }
-    if (typeof data.HeightCm != "number") { throw new Error("Invalid height value") }
-    if (typeof data.WeightKg != "number") { throw new Error("Invalid weight value") }
+    if (isNaN(data.HeightCm)){ throw new Error("Invalid height value") }
+    if (isNaN(data.WeightKg)){ throw new Error("Invalid weight value") }
     if (data.HeightCm == 0) { throw new Error("Height cannot be 0") }
+    
     let heightM = data.HeightCm / 100
     data.BMI = data.WeightKg / heightM
     let info = analyseBMI(data.BMI)
