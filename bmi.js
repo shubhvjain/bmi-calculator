@@ -32,8 +32,14 @@ let analyzeJSON = (userList) => {
     return userListResult
 }
 
+let overWeightCount = (userList) =>{
+    let recs = userList.filter(itm=>itm.BMICategory=="Overweight")
+    return recs.length
+}
+
 module.exports = {
     analyseBMI: analyseBMI,
     computeBMI: computeBMI,
-    analyzeJSON: analyzeJSON
+    analyzeJSON: analyzeJSON,
+    overWeightCount:overWeightCount
 }

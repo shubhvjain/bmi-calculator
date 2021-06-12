@@ -1,0 +1,12 @@
+{
+    "records":[{
+        "Gender": "Male",
+        "HeightCm": 123,
+        "WeightKg": 96
+    },
+    {
+        "Gender": "Male",
+        "HeightCm": 161,
+        "WeightKg": 85
+    }]
+}
