@@ -1,4 +1,4 @@
-# code-20210611-shubhvardhanjain
+# BMI Calculator 
 To run this app
 - Clone the git repo
 - Run `npm install`
